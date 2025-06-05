@@ -12,16 +12,15 @@
     <script type="importmap">
         {
             "imports": {
-			"three": "https://cdn.jsdelivr.net/npm/three@0.135.0/build/three.module.js",
-			"three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.135.0/examples/jsm/"
+			"three": "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js",
+			"three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/"
             }
         }
     </script>
     <script type="module">
         import * as THREE from 'three';
-        import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.135.0/examples/jsm/loaders/GLTFLoader.js';
-        import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.135.0/examples/jsm/controls/OrbitControls.js';
-        import { VertexNormalsHelper } from 'https://cdn.jsdelivr.net/npm/three@0.135.0/examples/jsm/helpers/VertexNormalsHelper.js';
+        import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/loaders/GLTFLoader.js';
+        import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/controls/OrbitControls.js';
 
         // Set up the scene, camera, and renderer
         const scene = new THREE.Scene();
@@ -32,11 +31,14 @@
         renderer.setClearColor(0x333333); // Dark gray background
 
         // Add lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Brighter ambient light
+        const ambientLight = new THREE.AmbientLight(0xffffff, 3);
         scene.add(ambientLight);
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Stronger directional light
-        directionalLight.position.set(5, 5, 5).normalize();
-        scene.add(directionalLight);
+        const directionalLight1 = new THREE.DirectionalLight(0xffdf8e, 8);
+        directionalLight1.position.set(5, 5, 5).normalize();
+        scene.add(directionalLight1);
+        const directionalLight2 = new THREE.DirectionalLight(0xffdf8e, 4);
+        directionalLight2.position.set(5, -5, 5).normalize();
+        scene.add(directionalLight2);
 
         // Load the 3D model
         const loader = new GLTFLoader();
